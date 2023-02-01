@@ -12,12 +12,22 @@
 <body>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">Fluid jumbotron</h1>
-          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+          <h1 class="display-4">Discover music from your favourite artists</h1>
+          <p class="lead">Information, next concerts and tours, best albums and more...</p>
         </div>
     </div>
     <div class="container-fluid" id="search-bar">
-        ...
+        <form id="search-form" class="form">
+              <div class="input-group">
+                <input class="form-input artist-search container rounded" type="text" id="search-input" placeholder="Music Artist or Band"
+                  aria-labelledby="form-heading"/>
+                <div class="container" style="padding: 1rem 0rem;">
+                  <button type="submit" class="btn btn-danger search-button btn-block rounded" id="search-button" aria-label="submit search">
+                    Search
+                  </button>
+                </div>
+              </div>
+        </form>
     </div>
     <div class="container">
         <div class="row">
