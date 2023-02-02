@@ -1,6 +1,6 @@
 const apiKey = "koyiY4a6cOCBRXLNERvKYy8umxP9bGSK";
 
-$("#search-button").on("submit", function (event) {
+$("#search-form").on("submit", function (event) {
   event.preventDefault();
 
   // //Call ticketmaster api using the attractions line of code.
