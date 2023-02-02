@@ -88,7 +88,10 @@ $.ajax(settings).done(function (response) {
     var trackAlbumImage = dataSearch.data[i].album.cover_medium;
     $("#best-albums").append(`
       <p>Title: ${trackTitle} </p>
-      <p>${trackPreview} </p>
+      <audio controls autoplay>
+        <source src="${trackPreview}" type="audio/mpeg">
+      Your browser does not support the audio element.
+      </audio>
       <p>Album: ${trackAlbumTitle} </p>
       <p><img src="${trackAlbumImage}" alt="${trackAlbumImage}"> </p>
     `);
