@@ -1,6 +1,6 @@
 const apiKey = "koyiY4a6cOCBRXLNERvKYy8umxP9bGSK";
 
-$("#search-form").on("submit", function (event) {
+$("#search-button").on("submit", function (event) {
   event.preventDefault();
 
   // //Call ticketmaster api using the attractions line of code.
@@ -17,29 +17,40 @@ $("#search-form").on("submit", function (event) {
     url: queryUrl,
     async: true,
     dataType: "json",
-    success: function (json) {
-      console.log(json, "hi");
-      // Parse the response.
-      // Do other things.
-    },
-    error: function (xhr, status, err) {
-      console.log(err);
-      // This time, we do not end up here!
-    },
   }).then(function (response) {
     console.log(response, "hi2");
-    const nameID = response;
+    const nameID = response._embedded.attractions;
     console.log(nameID, "hi3");
 
     //create list
+    $("#next-events").empty();
+    for (let i = 1; i < nameID.length; i++) {
+      const eventID = nameID[i];
+      console.log(eventID, "yo");
 
-    nameID.forEach(function (element) {
-      let eventDiv = $("<div>");
-      let eventTitle = $(`<h1>${nameID._embedded.attractions}</h1>`);
+      let eventsList = $("<div>");
 
-      eventDiv.append(eventTitle);
-      $(".articles").append(eventDiv);
+      //let eventsImg = $(`<img src="${eventID.images[0].url}">`);
+      let eventsURL = $(
+        `<a target="_blank" href="${eventID.url}"><img src="${eventID.images[0].url}"></a>`
+      );
+
+      let eventsName = $(`<h1>"${eventID.name}"</h1>`);
+
+      //eventsURL.wrap(eventsImg);
+
+      eventsList.append(eventsName, eventsURL);
+      $("#next-events").append(eventsList);
       //
-    });
+    }
+
+    // nameID.forEach(function (element) {
+    //   let eventDiv = $("<div>");
+    //   let eventTitle = $(`<h1>${nameID._embedded.attractions}</h1>`);
+
+    //   eventDiv.append(eventTitle);
+    //   $(".articles").append(eventDiv);
+    //
   });
 });
+// });
