@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MusicMash</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Discover music from your favourite artists</h1>
-          <p class="lead">Information, next concerts and tours, best albums and more...</p>
-        </div>
+      <div class="container">
+        <h1 class="display-4">Discover music from your favourite artists</h1>
+        <p class="lead">
+          Information, next concerts and tours, best albums and more...
+        </p>
+      </div>
     </div>
     <div class="container-fluid" id="search-bar">
-        <form id="search-form" class="form">
-              <div class="input-group">
-                <input class="form-input artist-search container rounded" type="text" id="search-input" placeholder="Music Artist or Band"
-                  aria-labelledby="form-heading"/>
-                <div class="container" style="padding: 1rem 0rem;">
-                  <button type="submit" class="btn btn-danger search-button btn-block rounded" id="search-button" aria-label="submit search">
-                    Search
-                  </button>
-                </div>
-              </div>
-        </form>
-    </div>
-    <div class="container">
-        <div class="row">
-          <div class="col" id="artist-information">
-            Artist information here
-          </div>
-          <div class="col" id="next-events">
-            Next events here
-          </div>
-          <div class="col" id="best-albums">
-            Best albums here
+      <form id="search-form" class="form">
+        <div class="input-group">
+          <input
+            class="form-input artist-search container rounded"
+            type="text"
+            id="search-input"
+            placeholder="Music Artist or Band"
+            aria-labelledby="form-heading"
+          />
+          <div class="container" style="padding: 1rem 0rem">
+            <button
+              type="submit"
+              class="btn btn-danger search-button btn-block rounded"
+              id="search-button"
+              aria-label="submit search"
+            >
+              Search
+            </button>
           </div>
         </div>
+      </form>
     </div>
-
-
-    
-</body>
-<script src="script.js"></script>
+    <div class="container">
+      <div class="row">
+        <div class="col" id="artist-information">Artist information here</div>
+        <div class="col" id="next-events">Next events here</div>
+        <div class="col" id="best-albums">Best albums here</div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
 </html>
