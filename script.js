@@ -1,17 +1,30 @@
-const apiKey = "koyiY4a6cOCBRXLNERvKYy8umxP9bGSK";
+/////////////////////////////////////////////////////////////////////////////////////
+//This code is broken down into three sections: ticketmaster API, Deezer API music and Deezer API for artists.
+//This will allow the user to discover information about the artist, events relating to the artist and finally a sample
+//of their music.
 
+//Ticketmaster API
+//This section calls upon the Ticketmaster API which will output information about events relating to the
+//artist inputted into the webpage search bar.
+
+//Event Listener for button
+//prevent default enabled to prevent form from submitting in order to reveal results.
 $("#search-form").on("submit", function (event) {
   event.preventDefault();
 
-  // //Call ticketmaster api using the attractions line of code.
+  //Ticketmaster API key
+  const apiKey = "koyiY4a6cOCBRXLNERvKYy8umxP9bGSK";
 
+  //Creating variables tp store value from search bar
   const userSelect = $("#search-input").val();
+  //URL endpoint including user's select option and apikey
   const queryUrl =
     "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" +
     userSelect +
     "&apikey=" +
     apiKey;
 
+  //Call ticketmaster api using the attractions line of code.
   $.ajax({
     type: "GET",
     url: queryUrl,
@@ -22,24 +35,29 @@ $("#search-form").on("submit", function (event) {
     const nameID = response._embedded.attractions;
     console.log(nameID, "hi3");
 
-    //create list
+    //Remove results from webpage following refresh.
     $("#next-events").empty();
+    //for loop to run through array
     for (let i = 1; i < nameID.length; i++) {
       const eventID = nameID[i];
       console.log(eventID, "yo");
 
+      //Creating a div which will append the results later.
       let eventsList = $("<div>");
 
-      //let eventsImg = $(`<img src="${eventID.images[0].url}">`);
+      //Creating a variable that targets the array's url and image fields. URL is wrapped
+      //inside image for easy viewing.
       let eventsURL = $(
         `<a target="_blank" href="${eventID.url}"><img src="${eventID.images[0].url}"></a>`
       );
+      console.log(eventID.images[0], "yo2");
 
+      //Creating a variable that targets the array's event names and putting it into a h1 header.
       let eventsName = $(`<h1>"${eventID.name}"</h1>`);
 
-      //eventsURL.wrap(eventsImg);
-
+      //Appending the data array's event name, url (including the image) to the eventsList div.
       eventsList.append(eventsName, eventsURL);
+      //Appending the eventsList div to the div with the corresponding id.
       $("#next-events").append(eventsList);
       //
     }
@@ -84,7 +102,7 @@ $("#search-form").on("submit", function (event) {
       var trackAlbumImage = dataSearch.data[i].album.cover_medium;
       $("#best-albums").append(`
       <p>Title: ${trackTitle} </p>
-      <audio controls autoplay>
+      <audio controls>
         <source src="${trackPreview}" type="audio/mpeg">
       Your browser does not support the audio element.
       </audio>
