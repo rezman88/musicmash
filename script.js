@@ -48,7 +48,7 @@ $("#search-form").on("submit", function (event) {
       //Creating a variable that targets the array's url and image fields. URL is wrapped
       //inside image for easy viewing.
       let eventsURL = $(
-        `<a target="_blank" href="${eventID.url}"><img src="${eventID.images[0].url}" style = "width: 70%"></a>`
+        `<a target="_blank" href="${eventID.url}"><img src="${eventID.images[0].url}" style = "width: 70%;border-radius:12px"></a>`
       );
       console.log(eventID.images[0], "yo2");
 
