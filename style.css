@@ -8,3 +8,11 @@
   padding-top: 10%;
   padding-bottom: 10%;
 }
+
+#footer {
+  display: flex;
+  background-color: red;
+  padding: 10px;
+  justify-content: center;
+  margin-top: 50px;
+}
