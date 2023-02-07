@@ -131,12 +131,15 @@ $("#search-form").on("submit", function (event) {
           console.log(artistResponse);
           var artistName = artistData.name;
           var artistImage = artistData.picture_medium;
+          var artistFans = artistData.nb_fan;
+    
           if (i == 0) {
             $("#artist-information").empty();
             $("#artist-information").append("<h2>Artist Information</h2>");
             $("#artist-information").append(`
             <p>Artist: ${artistName}</p>
             <p><img src="${artistImage}" alt="${artistImage}"> </p>
+            <p>Fans: ${artistFans}</p>
           `);
           }
         }
