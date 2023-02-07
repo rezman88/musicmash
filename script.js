@@ -74,7 +74,7 @@ $("#search-form").on("submit", function (event) {
     console.log(response);
     $("#best-albums").empty();
     $("#best-albums").append("<h2>Best tracks</h2>");
-    for (let i = 0; i < dataSearch.data.length; i++) {
+    for (let i = 0; i < 1; i++) {
       var trackId = dataSearch.data[i].id;
       var trackTitle = dataSearch.data[i].title;
       var trackPreview = dataSearch.data[i].preview;
@@ -82,15 +82,40 @@ $("#search-form").on("submit", function (event) {
       var trackAlbumId = dataSearch.data[i].album.id;
       var trackAlbumTitle = dataSearch.data[i].album.title;
       var trackAlbumImage = dataSearch.data[i].album.cover_medium;
-      $("#best-albums").append(`
-      <p>Title: ${trackTitle} </p>
-      <audio controls autoplay>
-        <source src="${trackPreview}" type="audio/mpeg">
-      Your browser does not support the audio element.
-      </audio>
-      <p>Album: ${trackAlbumTitle} </p>
-      <p><img src="${trackAlbumImage}" alt="${trackAlbumImage}"> </p>
-    `);
-    }
+      var trackArtistId = dataSearch.data[i].artist.id;
+
+      const artistSettings = {
+        async: true,
+        crossDomain: true,
+        url: "https://deezerdevs-deezer.p.rapidapi.com/artist/" + trackArtistId,
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key": "df2546054bmshe9048d5ae9a1441p13d910jsn20aabd33d717",
+          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+        },
+      };
+
+      var artistData;
+
+      $.ajax(artistSettings).done(function (artistResponse) {
+        artistData = artistResponse;
+        console.log(artistResponse);
+        var artistName = artistData.name;
+        var artistImage = artistData.picture_medium;
+        $("#best-albums").append(`
+        <p>Title: ${trackTitle} </p>
+        <audio controls>
+          <source src="${trackPreview}" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+        <p>Album: ${trackAlbumTitle} </p>
+        <p><img src="${trackAlbumImage}" alt="${trackAlbumImage}"> </p>
+        `);
+        $("#artist-information").append(`
+        <p>Artist: ${artistName}</p>
+        <p><img src="${artistImage}" alt="${artistImage}"> </p>
+        `);
+      });
+    };
   });
 });
