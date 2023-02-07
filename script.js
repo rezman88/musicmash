@@ -88,9 +88,6 @@ $("#search-form").on("submit", function (event) {
   var dataSearch;
 
   $.ajax(settings)
-    .done(function (response) {
-      return response;
-    })
     .then(function (response) {
       dataSearch = response;
       var trackArtistId = dataSearch.data[0].artist.id;
