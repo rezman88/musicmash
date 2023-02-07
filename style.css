@@ -10,9 +10,8 @@
 }
 
 #footer {
-  display: flex;
-  background-color: red;
   padding: 10px;
   justify-content: center;
   margin-top: 50px;
+  min-height: 10rem;
 }
