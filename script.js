@@ -53,7 +53,9 @@ $("#search-form").on("submit", function (event) {
       console.log(eventID.images[0], "yo2");
 
       //Creating a variable that targets the array's event names and putting it into a h1 header.
-      let eventsName = $(`<h1>"${eventID.name}"</h1>`);
+      let eventsName = $(
+        `<h1 style ="font-size:30px; text-align:center">"${eventID.name}"</h1>`
+      );
 
       //Appending the data array's event name, url (including the image) to the eventsList div.
       eventsList.append(eventsName, eventsURL);
