@@ -74,7 +74,7 @@ $("#search-form").on("submit", function (event) {
     console.log(response);
     $("#best-albums").empty();
     $("#best-albums").append("<h2>Best tracks</h2>");
-    for (let i = 0; i < dataSearch.data.length; i++) {
+    for (let i = 0; i < Math.max(12, dataSearch.total); i++) {
       var trackId = dataSearch.data[i].id;
       var trackTitle = dataSearch.data[i].title;
       var trackPreview = dataSearch.data[i].preview;
@@ -84,7 +84,7 @@ $("#search-form").on("submit", function (event) {
       var trackAlbumImage = dataSearch.data[i].album.cover_medium;
       $("#best-albums").append(`
       <p>Title: ${trackTitle} </p>
-      <audio controls autoplay>
+      <audio controls>
         <source src="${trackPreview}" type="audio/mpeg">
       Your browser does not support the audio element.
       </audio>
