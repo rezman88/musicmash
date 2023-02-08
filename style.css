@@ -1,6 +1,10 @@
+body {
+  background-color: rgb(218, 213, 203);
+}
+
 .jumbotron {
   background-image: url("./images/jumbotron.jpg");
-  background-color: #cccccc;
+  background-color: #4b1e97;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -10,9 +14,8 @@
 }
 
 #footer {
-  padding: 10px;
-  justify-content: center;
-  margin-top: 50px;
+  margin-top: 10px;
+  padding: 2rem;
   min-height: 10rem;
 }
 
