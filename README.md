@@ -1,12 +1,12 @@
 # musicmash
 
-musicmash provides the user with artist information, events and albums with playable music based on their search.
+musicmash provides the user with artist/band information, events and albums with playable music based on their search.
 
 ## Description
 
 The website uses two API plugins, Deezer and Ticketmaster, to call information about the music artist, events, albums and playable music.
 
-![musicmash landing page](https://rezman88.github.io/musicmash/https://myoctocat.com/images/landingpage.png)
+![musicmash landing page](https://rezman88.github.io/musicmash/images/landingpage.png)
 
 ## Technology used
 
@@ -17,7 +17,7 @@ The website uses two API plugins, Deezer and Ticketmaster, to call information a
 
 1 -User inputs music artist or band 2 -Click search button 3 -Review results
 
-![musicmash search results](https://rezman88.github.io/musicmash/https://myoctocat.com/images/searchresult.png)
+![musicmash search results](https://rezman88.github.io/musicmash/https:/images/searchresult.png)
 
 ## Contributors
 
