@@ -4,7 +4,7 @@ musicmash provides the user with artist/band information, events and albums with
 
 ## Description
 
-The website uses two API plugins, Deezer and Ticketmaster, to call information about the music artist, events, albums and playable music. The site can be found here: (https://rezman88.github.io/musicmash/)
+The website uses two API plugins, Deezer and Ticketmaster, to call information about the music artist, events, albums and playable music. The site can be found [here] (https://rezman88.github.io/musicmash/)
 
 ![musicmash landing page](https://rezman88.github.io/musicmash/images/landingpage.png)
 
