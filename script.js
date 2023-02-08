@@ -3,6 +3,10 @@
 //This will allow the user to discover information about the artist, events relating to the artist and finally a sample
 //of their music.
 
+
+const oldSearch = localStorage.getItem("lastSearch");
+$("#search-input").val(oldSearch);
+
 //Ticketmaster API
 //This section calls upon the Ticketmaster API which will output information about events relating to the
 //artist inputted into the webpage search bar.
@@ -17,6 +21,12 @@ $("#search-form").on("submit", function (event) {
 
   //Creating variables tp store value from search bar
   const userSelect = $("#search-input").val();
+  localStorage.setItem("lastSearch", userSelect);
+
+  if (userSelect === "") {
+    return;
+  }
+
   //URL endpoint including user's select option and apikey
   const queryUrl =
     "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" +
@@ -145,5 +155,4 @@ $("#search-form").on("submit", function (event) {
         }
       }
     });
-  });
-});
+})});

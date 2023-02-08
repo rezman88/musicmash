@@ -15,9 +15,15 @@ The website uses two API plugins, Deezer and Ticketmaster, to call information a
 
 ## How to use
 
-1 -User inputs music artist or band 2 -Click search button 3 -Review results
+**1** -User inputs music artist or band 
+**2** -Click search button 
+**3** -Review results
 
 ![musicmash search results](https://rezman88.github.io/musicmash/images/searchresult.png)
+
+![musicmash search results](https://rezman88.github.io/musicmash/images/searchresult2.png)
+
+
 
 ## Contributors
 
