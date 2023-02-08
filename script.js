@@ -37,6 +37,7 @@ $("#search-form").on("submit", function (event) {
 
     //Remove results from webpage following refresh.
     $("#next-events").empty();
+    $("#next-events").append("<h2>Next events</h2>");
     //for loop to run through array
     for (let i = 1; i < nameID.length; i++) {
       const eventID = nameID[i];
@@ -54,7 +55,7 @@ $("#search-form").on("submit", function (event) {
 
       //Creating a variable that targets the array's event names and putting it into a h1 header.
       let eventsName = $(
-        `<h1 style ="font-size:30px; text-align:center">"${eventID.name}"</h1>`
+        `<h4>"${eventID.name}"</h4>`
       );
 
       //Appending the data array's event name, url (including the image) to the eventsList div.
