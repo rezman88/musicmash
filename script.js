@@ -45,12 +45,9 @@ $("#search-form").on("submit", function (event) {
     const nameID = response._embedded.attractions;
     console.log(nameID, "hi3");
 
-<<<<<<< HEAD
-=======
     //Remove results from webpage following refresh.
     $("#next-events").empty();
     $("#next-events").append("<h2>Next events</h2>");
->>>>>>> 5bf07f4d05fd2a0cc95f1dea893ed401ebdba191
     //for loop to run through array
     for (let i = 1; i < nameID.length; i++) {
       const eventID = nameID[i];
@@ -158,9 +155,4 @@ $("#search-form").on("submit", function (event) {
         }
       }
     });
-<<<<<<< HEAD
-});
-=======
-  });
-});
->>>>>>> 5bf07f4d05fd2a0cc95f1dea893ed401ebdba191
+})});
