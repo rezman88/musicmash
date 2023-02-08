@@ -45,6 +45,12 @@ $("#search-form").on("submit", function (event) {
     const nameID = response._embedded.attractions;
     console.log(nameID, "hi3");
 
+<<<<<<< HEAD
+=======
+    //Remove results from webpage following refresh.
+    $("#next-events").empty();
+    $("#next-events").append("<h2>Next events</h2>");
+>>>>>>> 5bf07f4d05fd2a0cc95f1dea893ed401ebdba191
     //for loop to run through array
     for (let i = 1; i < nameID.length; i++) {
       const eventID = nameID[i];
@@ -56,12 +62,14 @@ $("#search-form").on("submit", function (event) {
       //Creating a variable that targets the array's url and image fields. URL is wrapped
       //inside image for easy viewing.
       let eventsURL = $(
-        `<a target="_blank" href="${eventID.url}"><img src="${eventID.images[0].url}"></a>`
+        `<a target="_blank" href="${eventID.url}"><img src="${eventID.images[0].url}" style = "width: 70%;border-radius:12px"></a>`
       );
       console.log(eventID.images[0], "yo2");
 
       //Creating a variable that targets the array's event names and putting it into a h1 header.
-      let eventsName = $(`<h1>"${eventID.name}"</h1>`);
+      let eventsName = $(
+        `<h4>"${eventID.name}"</h4>`
+      );
 
       //Appending the data array's event name, url (including the image) to the eventsList div.
       eventsList.append(eventsName, eventsURL);
@@ -95,37 +103,35 @@ $("#search-form").on("submit", function (event) {
 
   var dataSearch;
 
-  $.ajax(settings)
-    .then(function (response) {
-      dataSearch = response;
-      var trackArtistId = dataSearch.data[0].artist.id;
-      const artistSettings = {
-        async: true,
-        crossDomain: true,
-        url: "https://deezerdevs-deezer.p.rapidapi.com/artist/" + trackArtistId,
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "df2546054bmshe9048d5ae9a1441p13d910jsn20aabd33d717",
-          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-        },
-      };
+  $.ajax(settings).then(function (response) {
+    dataSearch = response;
+    var trackArtistId = dataSearch.data[0].artist.id;
+    const artistSettings = {
+      async: true,
+      crossDomain: true,
+      url: "https://deezerdevs-deezer.p.rapidapi.com/artist/" + trackArtistId,
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "df2546054bmshe9048d5ae9a1441p13d910jsn20aabd33d717",
+        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    };
 
-      var artistData;
+    var artistData;
 
-      $.ajax(artistSettings).done(function (artistResponse) {
-        $("#best-albums").empty();
-        $("#best-albums").append("<h2>Best tracks</h2>");
-        for (let i = 0; i < Math.min(5, dataSearch.total); i++) {
-          var trackId = dataSearch.data[i].id;
-          var trackTitle = dataSearch.data[i].title;
-          var trackPreview = dataSearch.data[i].preview;
-          var trackRank = dataSearch.data[i].rank;
-          var trackAlbumId = dataSearch.data[i].album.id;
-          var trackAlbumTitle = dataSearch.data[i].album.title;
-          var trackAlbumImage = dataSearch.data[i].album.cover_medium;
+    $.ajax(artistSettings).done(function (artistResponse) {
+      $("#best-albums").empty();
+      $("#best-albums").append("<h2>Best tracks</h2>");
+      for (let i = 0; i < Math.min(5, dataSearch.total); i++) {
+        var trackId = dataSearch.data[i].id;
+        var trackTitle = dataSearch.data[i].title;
+        var trackPreview = dataSearch.data[i].preview;
+        var trackRank = dataSearch.data[i].rank;
+        var trackAlbumId = dataSearch.data[i].album.id;
+        var trackAlbumTitle = dataSearch.data[i].album.title;
+        var trackAlbumImage = dataSearch.data[i].album.cover_medium;
 
-          $("#best-albums").append(`
+        $("#best-albums").append(`
         <p>Title: ${trackTitle} </p>
         <audio controls>
           <source src="${trackPreview}" type="audio/mpeg">
@@ -135,22 +141,26 @@ $("#search-form").on("submit", function (event) {
         <p><img src="${trackAlbumImage}" alt="${trackAlbumImage}"> </p>
         `);
 
-          artistData = artistResponse;
-          console.log(artistResponse);
-          var artistName = artistData.name;
-          var artistImage = artistData.picture_medium;
-          var artistFans = artistData.nb_fan;
-    
-          if (i == 0) {
-            $("#artist-information").empty();
-            $("#artist-information").append("<h2>Artist Information</h2>");
-            $("#artist-information").append(`
+        artistData = artistResponse;
+        console.log(artistResponse);
+        var artistName = artistData.name;
+        var artistImage = artistData.picture_medium;
+        var artistFans = artistData.nb_fan;
+
+        if (i == 0) {
+          $("#artist-information").empty();
+          $("#artist-information").append("<h2>Artist Information</h2>");
+          $("#artist-information").append(`
             <p>Artist: ${artistName}</p>
             <p><img src="${artistImage}" alt="${artistImage}"> </p>
             <p>Fans: ${artistFans}</p>
           `);
-          }
         }
-      });
+      }
     });
+<<<<<<< HEAD
 });
+=======
+  });
+});
+>>>>>>> 5bf07f4d05fd2a0cc95f1dea893ed401ebdba191
