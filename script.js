@@ -3,7 +3,6 @@
 //This will allow the user to discover information about the artist, events relating to the artist and finally a sample
 //of their music.
 
-
 const oldSearch = localStorage.getItem("lastSearch");
 $("#search-input").val(oldSearch);
 
@@ -41,9 +40,7 @@ $("#search-form").on("submit", function (event) {
     async: true,
     dataType: "json",
   }).then(function (response) {
-    console.log(response, "hi2");
     const nameID = response._embedded.attractions;
-    console.log(nameID, "hi3");
 
     //Remove results from webpage following refresh.
     $("#next-events").empty();
@@ -51,7 +48,6 @@ $("#search-form").on("submit", function (event) {
     //for loop to run through array
     for (let i = 1; i < nameID.length; i++) {
       const eventID = nameID[i];
-      console.log(eventID, "yo");
 
       //Creating a div which will append the results later.
       let eventsList = $("<div>");
@@ -61,12 +57,9 @@ $("#search-form").on("submit", function (event) {
       let eventsURL = $(
         `<a target="_blank" href="${eventID.url}"><img src="${eventID.images[0].url}" style = "width: 70%;border-radius:12px"></a>`
       );
-      console.log(eventID.images[0], "yo2");
 
       //Creating a variable that targets the array's event names and putting it into a h1 header.
-      let eventsName = $(
-        `<h4>"${eventID.name}"</h4>`
-      );
+      let eventsName = $(`<h4>"${eventID.name}"</h4>`);
 
       //Appending the data array's event name, url (including the image) to the eventsList div.
       eventsList.append(eventsName, eventsURL);
@@ -155,4 +148,5 @@ $("#search-form").on("submit", function (event) {
         }
       }
     });
-})});
+  });
+});
